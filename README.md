@@ -3,7 +3,8 @@
 Pong, but where the ball moves with a trajectory corresponding to the [Heisenberg Uncertainty Principle](https://en.wikipedia.org/wiki/Uncertainty_principle);
 
 The uncertainty principle states that the more confident we are in a particles position, the less confident we can be in its momentum;
-![Uncertainty Principle](https://latex.codecogs.com/png.image?\inline&space;\huge&space;\dpi{120}\Delta&space;x\Delta&space;p&space;\geq&space;\frac{\hbar}{2})
+
+![Uncertainty Principle](https://latex.codecogs.com/svg.image?\inline&space;\bg{white}\Delta&space;x\Delta&space;p\geq&space;\frac{\hbar}{2})
 
 x is position, p is momentum, and the h thing (h-bar) is a fixed, very small, constant.
 
