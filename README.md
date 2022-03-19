@@ -1,6 +1,15 @@
 # HeisenPong
 
-Pong, but where the ball moves with a trajectory corresponding to the Heisenberg Uncertainty Principle.
+Pong, but where the ball moves with a trajectory corresponding to the [Heisenberg Uncertainty Principle](https://en.wikipedia.org/wiki/Uncertainty_principle);
+
+The uncertainty principle states that the more confident we are in a particles position, the less confident we can be in its momentum;
+![Uncertainty Principle](https://latex.codecogs.com/png.image?\inline&space;\huge&space;\dpi{120}\Delta&space;x\Delta&space;p&space;\geq&space;\frac{\hbar}{2})
+
+x is position, p is momentum, and the h thing (h-bar) is a fixed, very small, constant.
+
+For any large moving body, e.g. a car, this doesn't matter very much as we can still be confident in the car's position and momentum to within a tiny fraction of their values, so we don't even notice the effect. For much smaller things, e.g. an electron, this is much more important. 
+
+I thought this effect could be explained reasonably well via pong, if it was played on an atomic scale, so hopefully this makes it clearer.
 
 ![Gameplay Example](Images/HeisenPong_Linux.png)
 ---
@@ -8,6 +17,7 @@ Pong, but where the ball moves with a trajectory corresponding to the Heisenberg
 ### To Play:
 
 player 1 moves paddle up/down with a/z
+
 player 2 moves paddle up/down with k/m
 
 ---
