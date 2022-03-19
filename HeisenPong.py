@@ -12,8 +12,16 @@ from kivy.uix.slider import Slider
 from kivy.vector import Vector
 from kivy.clock import Clock
 #from kivy.core.audio import SoundLoader
+from kivy.lang import Builder
 from random import random
 from time import sleep
+
+if Window.size[0] > 1200:
+    Builder.load_file('pong_HiResolution.kv')
+    RESOLUTION = 'Hi'
+else:
+    Builder.load_file('pong_MidResolution.kv')
+    RESOLUTION = 'Mid'
 
 class PongPaddle(Widget):
     score = NumericProperty(0)
@@ -37,7 +45,7 @@ class CommutationRelator():
         # pos_uncert * mom_uncert = hbar 
         # (note: fixed mass, so sub mom for vel)
         self.hbar = hbar
-        self.pos_uncert = pos_uncert*3
+        self.pos_uncert = pos_uncert*(3 if RESOLUTION == 'Hi' else 1.5)
         self.vel_uncert = hbar/self.pos_uncert
 
 class PongBall(Widget):
@@ -125,7 +133,7 @@ class PongGame(Widget):
             return False
         return True
 
-    def serve_ball(self, vel=(5, 0)):
+    def serve_ball(self, vel=((5 if RESOLUTION == 'Hi' else 3), 0)):
         self.ball.center = self.center
         self.ball.velocity = vel
         self.vball.center = self.center
@@ -150,16 +158,17 @@ class PongGame(Widget):
         # changed to depend on vball rather than ball
         factor = 1.15**self.max_score
         if (self.ball.x < self.x) or (self.ball.x > self.width):
+            serv_vel = (5 if RESOLUTION=='Hi' else 2.5)
             if self.ball.x < self.x:
                 self.player2.score += 1
                 self.score_msg.announce_point()
                 self.last_point_frame = self.frame_count
-                self.serve_ball(vel=(4*factor, factor*3*(random()-0.5)))
+                self.serve_ball(vel=(serv_vel*factor, factor*serv_vel*(random()-0.5)))
             elif self.ball.x > self.width:
                 self.player1.score += 1
                 self.score_msg.announce_point()
                 self.last_point_frame = self.frame_count
-                self.serve_ball(vel=(-4*factor, factor*3*(random()-0.5)))
+                self.serve_ball(vel=(-serv_vel*factor, factor*serv_vel*(random()-0.5)))
 
             self.max_score = max([self.player1.score, self.player2.score])
 
@@ -195,8 +204,8 @@ class PongApp(App):
         #sound = SoundLoader.load('mytest.wav')
         #sound.loop = True
         game = PongGame()
-        game.serve_ball(vel=((2*(random()>0.5)-1)*4, 3*(random()-0.5)))
-        sleep(10)
+        game.serve_ball(vel=((2*(random()>0.5)-1)*(5 if RESOLUTION=='Hi' else 3), (5 if RESOLUTION=='Hi' else 3)*(random()-0.5)))
+        sleep(3)
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
 

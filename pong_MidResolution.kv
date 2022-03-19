@@ -1,7 +1,7 @@
 #:kivy 1.11.0
 
 <PongBall>:
-    size: 50, 50
+    size: 25,25
     canvas:
         Color: 
             rgba: 0,1,0,0.5
@@ -10,7 +10,7 @@
             size: self.size
             
 <PongVirtualBall>:
-    size: 50, 50
+    size: 25,25
     canvas:
         Color: 
             rgba: 1,1,1,0
@@ -19,7 +19,7 @@
             size: self.size
 
 <PongPaddle>:
-    size: 25, 200
+    size: 12.5, 100
     canvas:
         Color:
             rgba: 1,1,1,1
@@ -29,13 +29,13 @@
 
 <PongEndmsg>:
     Label:
-        font_size: 120
+        font_size: 60
         text: root.win_msg 
         pos: self.parent.pos
 
 <PongScoremsg>:
     Label:
-        font_size: 120
+        font_size: 60
         text: root.score_msg 
         pos: self.parent.pos
         
@@ -54,13 +54,13 @@
             size: 10, self.height
     
     Label:
-        font_size: 50  
+        font_size: 30  
         center_x: root.width / 4
         top: root.top - 35
         text: "(a/z)\n" + str(root.player1.score) + "/"+str(root.win_score)
         
     Label:
-        font_size: 50  
+        font_size: 30  
         center_x: root.width * 3 / 4
         top: root.top - 35
         text: "(k/m)\n" + str(root.player2.score) + "/"+str(root.win_score)
@@ -77,7 +77,7 @@
         size: 400, 25
         
     Label:
-        font_size: 40  
+        font_size: 25  
         center_x: root.width / 2
         top: root.top - 35
         color: 1,0,1,1
