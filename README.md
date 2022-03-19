@@ -4,7 +4,7 @@ Pong, but where the ball moves with a trajectory corresponding to the [Heisenber
 
 The uncertainty principle states that the more confident we are in a particles position, the less confident we can be in its momentum;
 
-![Uncertainty Principle](https://latex.codecogs.com/svg.image?\inline&space;\bg{white}\Delta&space;x\Delta&space;p\geq&space;\frac{\hbar}{2})
+![Uncertainty Principle](Images/UncertPrinc.png)
 
 x is position, p is momentum, and the h thing (h-bar) is a fixed, very small, constant.
 
